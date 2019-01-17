@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost:5432/wikistack'
-    //, {loggig: false}     would remove the sequel command from terminal when sync is run
-    );
+const db = new Sequelize('postgres://localhost:5432/wikistack', {logging: false});
+// logging: false would remove the sequel command from terminal when sync is run
 
 const Page = db.define('page', {
     title: {
@@ -9,7 +8,7 @@ const Page = db.define('page', {
         allowNull: false,
     },
     slug: {
-        type: Sequelize.STRING,//CHAR LIMIT OF 255
+        type: Sequelize.STRING, //CHAR LIMIT OF 255
         allowNull: false
     },
     content: {
@@ -37,3 +36,5 @@ const User = db.define('user', {
 });
 
 module.exports = {db, Page, User}
+// exports.default = db
+// module.exports = db
